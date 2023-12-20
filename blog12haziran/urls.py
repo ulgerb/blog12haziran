@@ -24,4 +24,5 @@ urlpatterns = [
     path('Kategori', categoryPage),
     path('Hakkimizda', aboutPage),
     path('Iletisim', contactPage),
+    path('blog/<bid>', detailPage),
 ]

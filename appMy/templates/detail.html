@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +11,8 @@
    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
    <title>Document</title>
 </head>
-
 <body>
-
+   
    <!-- Navbar -->
    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
       <!-- Container wrapper -->
@@ -59,25 +57,23 @@
    </nav>
    <!-- Navbar -->
 
-   <main>
-      <div class="container">
-         <h2 class="my-4">İletişim</h2>
-         <ol>
-            <li>form method POST olucak</li>
-            <li>form içerisinde csrf token olucak</li>
-            <li>inputlarda name attribute olucak</li>
-            <li>button type submit olucak</li>
-         </ol>
-         <form method="POST">
-            {% csrf_token %}
-            <div>
-               <input name="fullname" type="text" class="my-3 form-control" placeholder="Ad Soyad">
-               <input name="title" type="text" class="my-3 form-control" placeholder="Konu">
-               <input name="email" type="email" class="my-3 form-control" placeholder="Email">
-               <textarea name="text" cols="30" rows="10" class="my-3 form-control" placeholder="Ne hakkında iletişime geçmek istiyorsunuz?"></textarea>
-               <button type="submit">Gönder</button>
+   <main class="container">
+      <div class="card my-4">
+         <h2>{{ blog.title }}</h2>
+         <img width="100%" height="400px" src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
+            alt="Fissure in Sandstone" />
+         <div class="card-body">
+            
+            {% if blog.subtitle %}
+               <h5 class="card-title">{{ blog.subtitle }}</h5>
+            {% endif %}
+               
+            <p class="card-text">{{ blog.text|linebreaks }}</p>
+            <div class="d-flex justify-content-between">
+               <div class="text-muted">{{ blog.date_now }}</div>
+               <div class="fw-bold">{{ blog.author }}</div>
             </div>
-         </form>
+         </div>
       </div>
    </main>
 
@@ -90,5 +86,4 @@
       initMDB({ Carousel });
    </script>
 </body>
-
 </html>

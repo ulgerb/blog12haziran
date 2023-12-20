@@ -4,3 +4,4 @@ from appMy.models import *
 
 admin.site.register(Blog) 
 admin.site.register(Deneme)
+admin.site.register(Contact)

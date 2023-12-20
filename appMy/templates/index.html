@@ -131,22 +131,26 @@
                   <div class="card mb-3 {% if i.id == 3 %} text-bg-dark {% endif %} " style="height: 200px;">
                      <div class="row g-0 h-100">
                         <div class="col-md-4 h-100">
-                           <img src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp" alt="Trendy Pants and Shoes"
-                              class="img-fluid rounded-start h-100 w-100" style="object-fit: cover;"/>
+                           <a href="/blog/{{ i.id }}">
+                              <img src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp" alt="Trendy Pants and Shoes"
+                                 class="img-fluid rounded-start h-100 w-100" style="object-fit: cover;"/>
+                           </a>
                         </div>
                         <div class="col-md-8">
                            <div class="card-body">
                               
-                              
-                              {% if i.id == 2 %}
-                                 <h5 class="card-title text-bg-dark">{{ i.id }}  {{ i.title }}</h5>
-                              {% else %}
-                                 <h5 class="card-title">{{ i.id }}  {{ i.title }}</h5>
-                              {% endif %}
+                              <a href="/blog/{{ i.id }}">
+                                 {% if i.id == 2 %}
+                                    <h5 class="card-title text-bg-dark">{{ i.id }}  {{ i.title }}</h5>
+                                 {% else %}
+                                    <h5 class="card-title">{{ i.id }}  {{ i.title }}</h5>
+                                 {% endif %}
+                              </a>
                                  
 
                               <p class="card-text">
-                                 {{ i.text }}
+                                 <!-- alt gr + - -->
+                                 {{ i.text|truncatechars:'150' }}
                               </p>
                               <p class="card-text">
                                  <small class="text-muted">{{ i.date_now }}</small>
